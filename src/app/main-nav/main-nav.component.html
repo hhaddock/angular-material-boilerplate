@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="warn">INSERT LOGO</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+      <hr>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="warn">
+      <mat-toolbar-row class="toolbar-row">
+          <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="fill-space"></span>
+        <span class="toolbar-row">
+          <button mat-button><mat-icon class="mat-icon">lock</mat-icon> Login</button>
+          <button mat-button><mat-icon class="mat-icon">person</mat-icon> Sign Up</button>
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div>
+      <mat-grid-list cols="4">
+          <mat-grid-tile>1</mat-grid-tile>
+          <mat-grid-tile><h1>Welcome back, Hayden</h1></mat-grid-tile>
+          <mat-grid-tile>3</mat-grid-tile>
+          <mat-grid-tile>4</mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
